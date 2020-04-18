@@ -7,7 +7,7 @@ FROM openjdk:11-slim
 
 COPY --from=build /home/gradle/src/build/libs/*.jar /home/gradle/src/app.jar
 
-RUN RUN chgrp -R 0 /home/gradle/ && \
+RUN chgrp -R 0 /home/gradle/ && \
         chmod -R g=u /home/gradle/
 
 ENTRYPOINT ["java", "-jar","/home/gradle/src/app.jar"]
