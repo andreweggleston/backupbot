@@ -2,7 +2,7 @@ FROM gradle:jdk11 as build
 USER gradle:gradle
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
-RUN gradle build --no-daemon
+RUN ./gradlew build --no-daemon
 
 FROM openjdk:11-slim
 
