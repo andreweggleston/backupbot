@@ -10,4 +10,6 @@ COPY --from=build /home/gradle/src/build/libs/*.jar /home/gradle/src/app.jar
 RUN chgrp -R 0 /home/gradle/ && \
         chmod -R g=u /home/gradle/
 
+RUN ls -n /home/gradle/src
+
 ENTRYPOINT ["java", "-jar","/home/gradle/src/app.jar"]
