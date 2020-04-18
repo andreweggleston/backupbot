@@ -1,6 +1,7 @@
 FROM gradle:jdk11 as build
-USER gradle:gradle
+USER root
 COPY --chown=gradle:gradle . /home/gradle/src
+USER gradle
 WORKDIR /home/gradle/src
 RUN ./gradlew build --no-daemon
 
